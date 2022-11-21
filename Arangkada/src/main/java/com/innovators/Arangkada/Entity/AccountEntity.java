@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="tbl_account")
@@ -14,42 +18,46 @@ public class AccountEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int accountid;
+	private int accountId;
 	
 	
 	private String firstname;
 	private String middlename;
 	private String lastname;
+	
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape =JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date birthdate;
+	
 	private int age;
-	private String number;
+	private String contactNumber;
 	private String address;
 	private String gender;
 	private String username;
 	private String password;
-	private String accounttype;
+	private String accountType;
 	
 	public AccountEntity() {}
 
-	public AccountEntity(int accountid, String firstname, String middlename, String lastname, Date birthdate, int age,
-			String number, String address, String gender, String username, String password, String accounttype) {
+	public AccountEntity(int accountId, String firstname, String middlename, String lastname, Date birthdate, int age,
+			String contactNumber, String address, String gender, String username, String password, String accountType) {
 		super();
-		this.accountid = accountid;
+		this.accountId = accountId;
 		this.firstname = firstname;
 		this.middlename = middlename;
 		this.lastname = lastname;
 		this.birthdate = birthdate;
 		this.age = age;
-		this.number = number;
+		this.contactNumber = contactNumber;
 		this.address = address;
 		this.gender = gender;
 		this.username = username;
 		this.password = password;
-		this.accounttype = accounttype;
+		this.accountType = accountType;
 	}
 
-	public int getAccountid() {
-		return accountid;
+	public int getAccountId() {
+		return accountId;
 	}
 
 	public String getFirstname() {
@@ -92,12 +100,12 @@ public class AccountEntity {
 		this.age = age;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getContactNumber() {
+		return contactNumber;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 
 	public String getAddress() {
@@ -132,14 +140,13 @@ public class AccountEntity {
 		this.password = password;
 	}
 
-	public String getAccounttype() {
-		return accounttype;
+	public String getAccountType() {
+		return accountType;
 	}
 
-	public void setAccounttype(String accounttype) {
-		this.accounttype = accounttype;
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
 	}
-	
 	
 	
 

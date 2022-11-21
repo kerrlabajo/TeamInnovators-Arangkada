@@ -25,40 +25,40 @@ public class OperatorService {
 		return orepo.findAll();
 	}
 	//Read2
-	public OperatorEntity findByPermitnumber(String permitnumber) {
-		if(orepo.findByPermitnumber(permitnumber) != null)
-			return orepo.findByPermitnumber(permitnumber);
+	public OperatorEntity findByPermitnumber(String permitNumber) {
+		if(orepo.findByPermitNumber(permitNumber) != null)
+			return orepo.findByPermitNumber(permitNumber);
 		else
 			return null;
 	}
 	
 	//Update
-	public OperatorEntity putOperator(int operatorid, OperatorEntity newOperatorDetails) throws Exception{
+	public OperatorEntity putOperator(int operatorId, OperatorEntity newOperatorDetails) throws Exception{
 				
 		OperatorEntity operator = new OperatorEntity();
 				
 			try {
-				operator = orepo.findById(operatorid).get(); 
+				operator = orepo.findById(operatorId).get(); 
 					
-				operator.setBusinessname(newOperatorDetails.getBusinessname());
-				operator.setPermitnumber(newOperatorDetails.getPermitnumber());
+				operator.setBusinessName(newOperatorDetails.getBusinessName());
+				operator.setPermitNumber(newOperatorDetails.getPermitNumber());
 					
 				return orepo.save(operator);
 			}catch(NoSuchElementException nex) {
-				throw new Exception("ID Number " + operatorid + " does not exist!");
+				throw new Exception("ID Number " + operatorId + " does not exist!");
 			}
 	}
 	
 	//Delete
-		public String deleteOperator(int operatorid) {
+		public String deleteOperator(int operatorId) {
 			String msg;
-			if(orepo.findById( operatorid) !=null) {
-				orepo.deleteById( operatorid);
+			if(orepo.findById( operatorId) !=null) {
+				orepo.deleteById( operatorId);
 				
-				msg = "Operator ID Number " +  operatorid + " is successfully deleted!";
+				msg = "Operator ID Number " +  operatorId + " is successfully deleted!";
 			}
 			else
-				msg = "Operator ID Number " +  operatorid + " is NOT found!";
+				msg = "Operator ID Number " +  operatorId + " is NOT found!";
 			
 			return msg;
 		}
