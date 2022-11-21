@@ -1,4 +1,4 @@
-package com.innovators.arangkada.Controller;
+package com.innovators.Arangkada.Controller;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.innovators.arangkada.Entity.DriverEntity;
-import com.innovators.arangkada.Service.DriverService;
+import com.innovators.Arangkada.Entity.DriverEntity;
+import com.innovators.Arangkada.Service.DriverService;
 
 
 

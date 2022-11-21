@@ -1,4 +1,4 @@
-package com.innovators.arangkada.Entity;
+package com.innovators.Arangkada.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
