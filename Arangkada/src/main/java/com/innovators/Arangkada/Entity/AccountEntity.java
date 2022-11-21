@@ -1,4 +1,4 @@
-package com.innovators.arangkada.Entity;
+package com.innovators.Arangkada.Entity;
 
 import java.util.Date;
 

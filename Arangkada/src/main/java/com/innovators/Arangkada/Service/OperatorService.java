@@ -1,4 +1,4 @@
-package com.innovators.arangkada.Service;
+package com.innovators.Arangkada.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.innovators.arangkada.Entity.OperatorEntity;
-import com.innovators.arangkada.Repository.OperatorRepository;
+import com.innovators.Arangkada.Entity.OperatorEntity;
+import com.innovators.Arangkada.Repository.OperatorRepository;
 
 @Service
 public class OperatorService {

@@ -1,4 +1,4 @@
-package com.innovators.arangkada.Controller;
+package com.innovators.Arangkada.Controller;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.innovators.arangkada.Entity.AccountEntity;
-import com.innovators.arangkada.Service.AccountService;
+import com.innovators.Arangkada.Entity.AccountEntity;
+import com.innovators.Arangkada.Service.AccountService;
 
 @RestController
 @RequestMapping("/account")

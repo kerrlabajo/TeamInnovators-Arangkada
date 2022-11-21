@@ -1,9 +1,9 @@
-package com.innovators.arangkada.Repository;
+package com.innovators.Arangkada.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.innovators.arangkada.Entity.AccountEntity;
+import com.innovators.Arangkada.Entity.AccountEntity;
 
 @Repository
 
