@@ -28,7 +28,7 @@ public class DriverService {
 		return drepo.findAll(); 		
 	}
 	
-	public DriverEntity findByDriverId (String driverid) {
+	public DriverEntity findByDriverId (int driverid) {
 		if (drepo.findByDriverid(driverid)!=null)
 			return drepo.findByDriverid(driverid);
 		else
@@ -46,6 +46,7 @@ public class DriverService {
 		
 		driver.setLicensenumber(newDriverDetails.getLicensenumber());
 		driver.setLicensecode(newDriverDetails.getLicensecode());
+		driver.setOperator(newDriverDetails.getOperator());
 
 		return drepo.save(driver);
 		

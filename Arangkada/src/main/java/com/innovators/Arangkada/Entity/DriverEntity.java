@@ -15,7 +15,7 @@ public class DriverEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private String driverid;
+	private int driverid;
 	
 	private String licensenumber;
 	private String licensecode;
@@ -23,6 +23,10 @@ public class DriverEntity {
 	@OneToOne
 	@JoinColumn(name="accountid")
 	AccountEntity account;
+	
+	@OneToOne
+	@JoinColumn(name="operatorid")
+	OperatorEntity operator;
 
 	
 		
@@ -30,23 +34,24 @@ public class DriverEntity {
 
 
 
-	public DriverEntity(String driverid, String licensenumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account, OperatorEntity operator) {
 		super();
 		this.driverid = driverid;
 		this.licensenumber = licensenumber;
 		this.licensecode = licensecode;
 		this.account = account;
+		this.operator = operator;
 	}
 
 
 
-	public String getDriverid() {
+	public int getDriverid() {
 		return driverid;
 	}
 
 
 
-	public void setDriverid(String driverid) {
+	public void setDriverid(int driverid) {
 		this.driverid = driverid;
 	}
 
@@ -87,7 +92,13 @@ public class DriverEntity {
 	}
 
 
+	public OperatorEntity getOperator() {
+		return operator;
+	}
 	
+	public void setOperator(OperatorEntity operator) {
+		this.operator = operator;
+	}
 	
 	
 }
