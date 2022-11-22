@@ -15,7 +15,7 @@ public class DriverEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private String driverid;
+	private int driverid;
 	
 	private String licensenumber;
 	private String licensecode;
@@ -30,7 +30,7 @@ public class DriverEntity {
 
 
 
-	public DriverEntity(String driverid, String licensenumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account) {
 		super();
 		this.driverid = driverid;
 		this.licensenumber = licensenumber;
@@ -40,13 +40,13 @@ public class DriverEntity {
 
 
 
-	public String getDriverid() {
+	public int getDriverid() {
 		return driverid;
 	}
 
 
 
-	public void setDriverid(String driverid) {
+	public void setDriverid(int driverid) {
 		this.driverid = driverid;
 	}
 

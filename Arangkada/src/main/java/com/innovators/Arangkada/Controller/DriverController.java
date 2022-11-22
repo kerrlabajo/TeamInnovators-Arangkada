@@ -39,7 +39,7 @@ public class DriverController {
 	}
 	
 	@GetMapping("/getByDriverid")
-	public DriverEntity findByDriverId(@RequestParam String driverid) {
+	public DriverEntity findByDriverId(@RequestParam int driverid) {
 		return dserv.findByDriverId(driverid);	
 	}
 	
