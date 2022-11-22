@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tbl_approval_requests")
-public class ApprovalRequestsEntity {
+public class ApprovalRequestEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,9 @@ public class ApprovalRequestsEntity {
 	@JoinColumn(name = "operatorid")
 	OperatorEntity operator;
 
-	public ApprovalRequestsEntity() {}
+	public ApprovalRequestEntity() {}
 	
-	public ApprovalRequestsEntity(int requestId, DriverEntity driver, OperatorEntity operator) {
+	public ApprovalRequestEntity(int requestId, DriverEntity driver, OperatorEntity operator) {
 		super();
 		this.requestId = requestId;
 		this.driver = driver;

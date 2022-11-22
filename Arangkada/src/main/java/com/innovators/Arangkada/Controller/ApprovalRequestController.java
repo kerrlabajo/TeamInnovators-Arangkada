@@ -12,28 +12,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.innovators.Arangkada.Entity.ApprovalRequestsEntity;
-import com.innovators.Arangkada.Service.ApprovalRequestsService;
+import com.innovators.Arangkada.Entity.ApprovalRequestEntity;
+import com.innovators.Arangkada.Service.ApprovalRequestService;
 
 @RestController
 @RequestMapping("/approvalRequests")
-public class ApprovalRequestsController {
+public class ApprovalRequestController {
 
 	@Autowired
-	ApprovalRequestsService arrserv;
+	ApprovalRequestService arrserv;
 	
 	@PostMapping("/postApprovalRequest")
-	public ApprovalRequestsEntity insertApprovalRequest(@RequestBody ApprovalRequestsEntity driver) {
+	public ApprovalRequestEntity insertApprovalRequest(@RequestBody ApprovalRequestEntity driver) {
 		return arrserv.insertApprovalRequest(driver);
 	}
 	
 	@GetMapping("/displayAllApprovalRequests")
-	public List<ApprovalRequestsEntity> getAllApprovalRequests(){
+	public List<ApprovalRequestEntity> getAllApprovalRequests(){
 		return arrserv.getAllApprovalRequests(); 	
 	}
 	
 	@GetMapping("/getByDriverName")
-	public ApprovalRequestsEntity findByDrivername(@RequestParam String drivername) {
+	public ApprovalRequestEntity findByDrivername(@RequestParam String drivername) {
 		return arrserv.findByDrivername(drivername);	
 	}
 	

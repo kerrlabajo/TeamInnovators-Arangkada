@@ -6,24 +6,24 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.innovators.Arangkada.Entity.ApprovalRequestsEntity;
-import com.innovators.Arangkada.Repository.ApprovalRequestsRepository;
+import com.innovators.Arangkada.Entity.ApprovalRequestEntity;
+import com.innovators.Arangkada.Repository.ApprovalRequestRepository;
 
 @Service
-public class ApprovalRequestsService {
+public class ApprovalRequestService {
 
 	@Autowired
-	ApprovalRequestsRepository arrepo;
+	ApprovalRequestRepository arrepo;
 	
-	public ApprovalRequestsEntity insertApprovalRequest(ApprovalRequestsEntity request) {
+	public ApprovalRequestEntity insertApprovalRequest(ApprovalRequestEntity request) {
 		return arrepo.save(request);
 	}
 	
-	public List<ApprovalRequestsEntity> getAllApprovalRequests(){
+	public List<ApprovalRequestEntity> getAllApprovalRequests(){
 		return arrepo.findAll(); 		
 	}
 	
-	public ApprovalRequestsEntity findByDrivername (String drivername) {
+	public ApprovalRequestEntity findByDrivername (String drivername) {
 		if (arrepo.findByDrivername(drivername)!=null)
 			return arrepo.findByDrivername(drivername);
 		else
