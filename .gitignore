@@ -1,6 +1,7 @@
 # Eclipse
 .classpath
 .project
+application.properties
 .settings/
 
 # Intellij
