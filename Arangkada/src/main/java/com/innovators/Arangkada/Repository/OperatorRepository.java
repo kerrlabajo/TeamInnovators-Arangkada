@@ -8,6 +8,6 @@ import com.innovators.Arangkada.Entity.OperatorEntity;
 @Repository
 public interface OperatorRepository extends JpaRepository<OperatorEntity, Integer>{
 	
-	OperatorEntity findByPermitnumber(String permitnumber);
+	OperatorEntity findByPermitNumber(String permitNumber);
 
 }

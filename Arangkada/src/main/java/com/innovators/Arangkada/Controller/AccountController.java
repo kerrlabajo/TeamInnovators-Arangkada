@@ -43,14 +43,14 @@ public class AccountController {
 	
 	//Update a record
 	@PutMapping("/putAccount")
-	public AccountEntity putStudent(@RequestParam int accountid, @RequestBody AccountEntity newAccountDetails) throws Exception{
-		return aserve.putStudent(accountid, newAccountDetails);
+	public AccountEntity putStudent(@RequestParam int accountId, @RequestBody AccountEntity newAccountDetails) throws Exception{
+		return aserve.putStudent(accountId, newAccountDetails);
 	}
 		
 	//Delete a record
-	@DeleteMapping("/deleteAccount/{accountid}")
-	public String deleteAccount(@PathVariable int accountid) {
-		return aserve.deleteAccount(accountid);
+	@DeleteMapping("/deleteAccount/{accountId}")
+	public String deleteAccount(@PathVariable int accountId) {
+		return aserve.deleteAccount(accountId);
 	}
 		
 

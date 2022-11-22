@@ -14,43 +14,43 @@ public class OperatorEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int operatorid;
+	private int operatorId;
 	
-	private String businessname;
-	private String permitnumber;
+	private String businessName;
+	private String permitNumber;
 	
 	@OneToOne
-	@JoinColumn(name="accountid")
+	@JoinColumn(name="accountId")
 	AccountEntity account;
 	
 	public OperatorEntity() {}
 
-	public OperatorEntity(int operatorid, String businessname, String permitnumber, AccountEntity account) {
+	public OperatorEntity(int operatorId, String businessName, String permitNumber, AccountEntity account) {
 		super();
-		this.operatorid = operatorid;
-		this.businessname = businessname;
-		this.permitnumber = permitnumber;
+		this.operatorId = operatorId;
+		this.businessName = businessName;
+		this.permitNumber = permitNumber;
 		this.account = account;
 	}
 
-	public int getOperatorid() {
-		return operatorid;
+	public int getOperatorId() {
+		return operatorId;
 	}
 
-	public String getBusinessname() {
-		return businessname;
+	public String getBusinessName() {
+		return businessName;
 	}
 
-	public void setBusinessname(String businessname) {
-		this.businessname = businessname;
+	public void setBusinessName(String businessName) {
+		this.businessName = businessName;
 	}
 
-	public String getPermitnumber() {
-		return permitnumber;
+	public String getPermitNumber() {
+		return permitNumber;
 	}
 
-	public void setPermitnumber(String permitnumber) {
-		this.permitnumber = permitnumber;
+	public void setPermitNumber(String permitNumber) {
+		this.permitNumber = permitNumber;
 	}
 
 	public AccountEntity getAccount() {

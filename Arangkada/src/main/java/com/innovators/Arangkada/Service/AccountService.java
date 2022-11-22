@@ -33,32 +33,32 @@ public class AccountService {
 	}
 	
 	//Update
-	public AccountEntity putStudent(int accountid, AccountEntity newAccountDetails) throws Exception{
+	public AccountEntity putStudent(int accountId, AccountEntity newAccountDetails) throws Exception{
 			
 		AccountEntity account = new AccountEntity();
 			
 			try {
-				account = arepo.findById(accountid).get(); 
+				account = arepo.findById(accountId).get(); 
 				
 				account.setUsername(newAccountDetails.getUsername());
 				account.setPassword(newAccountDetails.getPassword());
 				
 				return arepo.save(account);
 			}catch(NoSuchElementException nex) {
-				throw new Exception("ID Number " + accountid + " does not exist!");
+				throw new Exception("ID Number " + accountId + " does not exist!");
 			}
 	}
 	
 	//Delete
-	public String deleteAccount(int accountid) {
+	public String deleteAccount(int accountId) {
 		String msg;
-		if(arepo.findById( accountid) !=null) {
-			arepo.deleteById( accountid);
+		if(arepo.findById( accountId) !=null) {
+			arepo.deleteById( accountId);
 			
-			msg = "Account ID Number " +  accountid + " is successfully deleted!";
+			msg = "Account ID Number " +  accountId + " is successfully deleted!";
 		}
 		else
-			msg = "Account ID Number " +  accountid + " is NOT found!";
+			msg = "Account ID Number " +  accountId + " is NOT found!";
 		
 		return msg;
 	}

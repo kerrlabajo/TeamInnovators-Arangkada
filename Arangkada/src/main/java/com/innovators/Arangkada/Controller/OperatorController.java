@@ -37,20 +37,20 @@ public class OperatorController {
 			
 	//Read a record by Permit Number
 	@GetMapping("/getByPermitnumber")
-	public OperatorEntity findByPermitnumber(@RequestParam String permitnumber) {
-		return oserve.findByPermitnumber(permitnumber);
+	public OperatorEntity findByPermitnumber(@RequestParam String permitNumber) {
+		return oserve.findByPermitnumber(permitNumber);
 	}
 		
 	//Update
 	@PutMapping("/putOperator")
-	public OperatorEntity putOperator(@RequestParam int operatorid, @RequestBody OperatorEntity newOperatorDetails) throws Exception{
-		return oserve.putOperator(operatorid, newOperatorDetails);
+	public OperatorEntity putOperator(@RequestParam int operatorId, @RequestBody OperatorEntity newOperatorDetails) throws Exception{
+		return oserve.putOperator(operatorId, newOperatorDetails);
 	}
 			
 	//Delete
-	@DeleteMapping("/deleteOperator/{operatorid}")
-	public String deleteOperator(@PathVariable int operatorid) {
-		return oserve.deleteOperator(operatorid);
+	@DeleteMapping("/deleteOperator/{operatorId}")
+	public String deleteOperator(@PathVariable int operatorId) {
+		return oserve.deleteOperator(operatorId);
 	}
 
 }
