@@ -1,5 +1,6 @@
 package com.innovators.Arangkada.Entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,8 @@ public class OperatorEntity {
 	private String businessName;
 	private String permitNumber;
 	
-	@OneToOne
-	@JoinColumn(name="accountId")
+	@OneToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name="account_id",  referencedColumnName = "accountId")
 	AccountEntity account;
 	
 	public OperatorEntity() {}
