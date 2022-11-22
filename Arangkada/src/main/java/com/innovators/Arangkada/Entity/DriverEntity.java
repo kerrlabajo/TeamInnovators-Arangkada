@@ -23,6 +23,10 @@ public class DriverEntity {
 	@OneToOne
 	@JoinColumn(name="accountid")
 	AccountEntity account;
+	
+	@OneToOne
+	@JoinColumn(name="operatorid")
+	OperatorEntity operator;
 
 	
 		
@@ -30,12 +34,13 @@ public class DriverEntity {
 
 
 
-	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account, OperatorEntity operator) {
 		super();
 		this.driverid = driverid;
 		this.licensenumber = licensenumber;
 		this.licensecode = licensecode;
 		this.account = account;
+		this.operator = operator;
 	}
 
 
@@ -87,7 +92,13 @@ public class DriverEntity {
 	}
 
 
+	public OperatorEntity getOperator() {
+		return operator;
+	}
 	
+	public void setOperator(OperatorEntity operator) {
+		this.operator = operator;
+	}
 	
 	
 }
