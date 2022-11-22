@@ -46,6 +46,7 @@ public class DriverService {
 		
 		driver.setLicensenumber(newDriverDetails.getLicensenumber());
 		driver.setLicensecode(newDriverDetails.getLicensecode());
+		driver.setOperator(newDriverDetails.getOperator());
 
 		return drepo.save(driver);
 		
