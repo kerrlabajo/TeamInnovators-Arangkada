@@ -49,7 +49,7 @@ public class VehicleService {
 
 	public String deleteVehicle(int vehicleId) {
 		String msg;
-		if(vrepo.findById(vehicleId) !=null) { 
+		if(vrepo.findById(vehicleId).orElse(null) !=null) { 
 			vrepo.deleteById(vehicleId); 
 			msg= "Vehicle ID Number " + vehicleId + " is successfully deleted!";
 		}
