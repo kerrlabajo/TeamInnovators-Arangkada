@@ -21,8 +21,8 @@ public class PaymentEntity {
 	private double amount;
 	private Date datePaid;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "rental_id", referencedColumnName = "rental_id")
+	@ManyToOne
+	@JoinColumn(name = "rental_id")
 	private RentalEntity rent;
 
 	public PaymentEntity() {}
