@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.innovators.Arangkada.Entity.PaymentEntity;
-import com.innovators.Arangkada.Entity.RentalEntity;
-import com.innovators.Arangkada.Enum.RentalStatus;
 import com.innovators.Arangkada.Repository.PaymentRepository;
 
 @Service
