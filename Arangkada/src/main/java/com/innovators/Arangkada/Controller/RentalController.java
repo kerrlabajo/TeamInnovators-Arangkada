@@ -3,6 +3,7 @@ package com.innovators.Arangkada.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import com.innovators.Arangkada.Service.RentalService;
 
 @RestController
 @RequestMapping("/rental")
+@CrossOrigin("http://localhost:3000/")
 public class RentalController {
 
 	@Autowired
@@ -39,19 +41,19 @@ public class RentalController {
 		return rentalService.getRentalById(id);
 	}
 	
-	@GetMapping("/getRentalByVehicleOperatorId/{id}")
-	public List<RentalEntity> getAllRentalsByVehicleOperatorId(@PathVariable int id) {
-		return rentalService.getRentalByVehicleOperatorId(id);
+	@GetMapping("/getRentalsByVehicleOperatorId/{id}")
+	public List<RentalEntity> getRentalsByVehicleOperatorId(@PathVariable int id) {
+		return rentalService.getRentalsByVehicleOperatorId(id);
+	}
+	
+	@GetMapping("/getRentalsByDriverId/{id}")
+	public List<RentalEntity> getRentalsByDriverId(@PathVariable int id) {
+		return rentalService.getRentalsByDriverId(id);
 	}
 	
 	@GetMapping("/getCurrentRentalByDriverId/{id}")
 	public RentalEntity getCurrentRentalByDriverId(@PathVariable int id) {
 		return rentalService.getCurrentRentalByDriverId(id);
-	}
-	
-	@GetMapping("/getPreviousRentalByDriverId/{id}")
-	public List<RentalEntity> getPreviousRentalByDriverId(@PathVariable int id) {
-		return rentalService.getPreviousRentalByDriverId(id);
 	}
 	
 	// Update

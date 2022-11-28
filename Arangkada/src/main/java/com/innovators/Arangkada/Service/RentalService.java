@@ -30,17 +30,18 @@ public class RentalService {
 		return rentalRepository.findById(id).orElse(null);
 	}
 	
-	public List<RentalEntity> getRentalByVehicleOperatorId(int id) {
+	public List<RentalEntity> getRentalsByVehicleOperatorId(int id) {
 		return rentalRepository.findByVehicleOperatorOperatorId(id);
+	}
+	
+	public List<RentalEntity> getRentalsByDriverId(int id) {
+		return rentalRepository.findByDriverDriverid(id);
 	}
 	
 	public RentalEntity getCurrentRentalByDriverId(int id) {
 		return rentalRepository.findCurrentByDriverId(id);
 	}
 	
-	public List<RentalEntity> getPreviousRentalByDriverId(int id) {
-		return rentalRepository.findPreviousByDriverId(id);
-	}
 	
 	// Update
 	public RentalEntity putRental(int id, RentalEntity newRentalDetails) {
