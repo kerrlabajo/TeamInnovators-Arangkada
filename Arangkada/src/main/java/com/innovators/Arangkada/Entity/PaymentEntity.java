@@ -22,17 +22,17 @@ public class PaymentEntity {
 	private Date datePaid;
 	
 	@ManyToOne
-	@JoinColumn(name = "rental_id")
-	private RentalEntity rent;
+	@JoinColumn(name = "rental_id", referencedColumnName = "rentalId")
+	private RentalEntity rental;
 
 	public PaymentEntity() {}
 	
-	public PaymentEntity(int paymentId, double amount, Date datePaid, RentalEntity rent) {
+	public PaymentEntity(int paymentId, double amount, Date datePaid, RentalEntity rental) {
 		super();
 		this.paymentId = paymentId;
 		this.amount = amount;
 		this.datePaid = datePaid;
-		this.rent = rent;
+		this.rental = rental;
 	}
 
 	public int getPaymentId() {
@@ -59,12 +59,12 @@ public class PaymentEntity {
 		this.datePaid = datePaid;
 	}
 
-	public RentalEntity getRent() {
-		return rent;
+	public RentalEntity getRental() {
+		return rental;
 	}
 
-	public void setRent(RentalEntity rent) {
-		this.rent = rent;
+	public void setRental(RentalEntity rental) {
+		this.rental = rental;
 	}
 	
 	

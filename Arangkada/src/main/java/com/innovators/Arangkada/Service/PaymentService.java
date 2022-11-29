@@ -37,7 +37,7 @@ public class PaymentService {
 			
 			payment.setAmount(newPaymentDdetails.getAmount());
 			payment.setDatePaid(newPaymentDdetails.getDatePaid());
-			payment.setRent(newPaymentDdetails.getRent());
+			payment.setRental(newPaymentDdetails.getRental());
 			
 			return paymentRepository.save(payment);
 		}	
