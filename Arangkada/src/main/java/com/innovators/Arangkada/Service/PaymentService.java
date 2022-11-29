@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.innovators.Arangkada.Entity.PaymentEntity;
+import com.innovators.Arangkada.Entity.RentalEntity;
 import com.innovators.Arangkada.Repository.PaymentRepository;
 
 @Service
@@ -24,6 +25,10 @@ public class PaymentService {
 	
 	public PaymentEntity getPaymentById(int id) {
 		return paymentRepository.findById(id).orElse(null);
+	}
+	
+	public List<PaymentEntity> getPaymentsByDriverId(int id) {
+		return paymentRepository.findByRentalDriverid(id);
 	}
 	
 	public PaymentEntity putPayment(int id, PaymentEntity newPaymentDdetails) {

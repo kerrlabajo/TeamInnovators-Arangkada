@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innovators.Arangkada.Entity.PaymentEntity;
+import com.innovators.Arangkada.Entity.RentalEntity;
 import com.innovators.Arangkada.Service.PaymentService;
 
 @RestController
@@ -30,6 +31,11 @@ public class PaymentController {
 	@GetMapping("/getAllPayments")
 	public List<PaymentEntity> getAllPayments() {
 		return paymentService.getAllPayments();
+	}
+	
+	@GetMapping("/getPaymentsByDriverId/{id}")
+	public List<PaymentEntity> getPaymentsByDriverId(@PathVariable int id) {
+		return paymentService.getPaymentsByDriverId(id);
 	}
 	
 	@GetMapping("/getPaymentById/{id}")
