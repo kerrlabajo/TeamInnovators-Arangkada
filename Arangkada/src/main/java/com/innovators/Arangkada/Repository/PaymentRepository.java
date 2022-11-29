@@ -11,5 +11,5 @@ import com.innovators.Arangkada.Entity.RentalEntity;
 
 public interface PaymentRepository extends JpaRepository<PaymentEntity, Integer>{
 
-	public List<PaymentEntity> findByRentalDriverid(int id);
+	public List<PaymentEntity> findByRentalDriverDriverid(int id);
 }

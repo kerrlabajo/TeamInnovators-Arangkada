@@ -28,7 +28,7 @@ public class PaymentService {
 	}
 	
 	public List<PaymentEntity> getPaymentsByDriverId(int id) {
-		return paymentRepository.findByRentalDriverid(id);
+		return paymentRepository.findByRentalDriverDriverid(id);
 	}
 	
 	public PaymentEntity putPayment(int id, PaymentEntity newPaymentDdetails) {
