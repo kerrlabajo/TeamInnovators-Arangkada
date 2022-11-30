@@ -9,8 +9,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 @Entity
 @Table(name="tbl_operator")
+@SQLDelete(sql = "UPDATE tbl_operator SET is_deleted = true WHERE operator_id=?")
+@Where(clause = "is_deleted=false")
 public class OperatorEntity {
 	
 	@Id
@@ -19,8 +24,9 @@ public class OperatorEntity {
 	
 	private String businessName;
 	private String permitNumber;
+	private boolean isDeleted = Boolean.FALSE;
 	
-	@OneToOne(cascade = CascadeType.MERGE)
+	@OneToOne(cascade = { CascadeType.REMOVE, CascadeType.MERGE })
 	@JoinColumn(name="account_id",  referencedColumnName = "accountId")
 	AccountEntity account;
 	
@@ -61,6 +67,15 @@ public class OperatorEntity {
 	public void setAccount(AccountEntity account) {
 		this.account = account;
 	}
+
+	public boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	
 	
 	
 	
