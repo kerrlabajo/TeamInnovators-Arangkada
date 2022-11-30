@@ -40,6 +40,11 @@ public class AccountService {
 			try {
 				account = arepo.findById(accountId).get(); 
 				
+				account.setFirstname(newAccountDetails.getFirstname());
+				account.setMiddlename(newAccountDetails.getMiddlename());
+				account.setLastname(newAccountDetails.getLastname());
+				account.setContactNumber(newAccountDetails.getContactNumber());
+				account.setAddress(newAccountDetails.getAddress());
 				account.setUsername(newAccountDetails.getUsername());
 				account.setPassword(newAccountDetails.getPassword());
 				
