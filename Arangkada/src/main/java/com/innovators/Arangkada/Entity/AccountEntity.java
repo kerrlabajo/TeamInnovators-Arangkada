@@ -94,16 +94,8 @@ public class AccountEntity {
 		return birthdate;
 	}
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
-	}
-
 	public int getAge() {
 		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
 	}
 
 	public String getContactNumber() {
@@ -126,10 +118,6 @@ public class AccountEntity {
 		return gender;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -148,10 +136,6 @@ public class AccountEntity {
 
 	public String getAccountType() {
 		return accountType;
-	}
-
-	public void setAccountType(String accountType) {
-		this.accountType = accountType;
 	}
 	
 	public boolean getIsDeleted() {
