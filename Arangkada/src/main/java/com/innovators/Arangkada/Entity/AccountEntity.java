@@ -10,10 +10,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="tbl_account")
+@SQLDelete(sql = "UPDATE tbl_account SET is_deleted = true WHERE account_id=?")
+@Where(clause = "is_deleted=false")
 public class AccountEntity {
 	
 	@Id
@@ -36,6 +41,7 @@ public class AccountEntity {
 	private String username;
 	private String password;
 	private String accountType;
+	private boolean isDeleted = Boolean.FALSE;
 	
 	public AccountEntity() {}
 
@@ -148,6 +154,10 @@ public class AccountEntity {
 		this.accountType = accountType;
 	}
 	
+	public boolean getIsDeleted() {
+		return isDeleted;
+	}
+
 	
 
 }
