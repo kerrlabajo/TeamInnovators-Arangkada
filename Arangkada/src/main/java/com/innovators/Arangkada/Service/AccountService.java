@@ -57,7 +57,7 @@ public class AccountService {
 	//Delete
 	public String deleteAccount(int accountId) {
 		String msg;
-		if(arepo.findById( accountId) !=null) {
+		if(arepo.findById( accountId).orElse(null) !=null) {
 			arepo.deleteById( accountId);
 			
 			msg = "Account ID Number " +  accountId + " is successfully deleted!";
