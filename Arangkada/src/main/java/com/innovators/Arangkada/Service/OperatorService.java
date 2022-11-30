@@ -52,7 +52,7 @@ public class OperatorService {
 	//Delete
 		public String deleteOperator(int operatorId) {
 			String msg;
-			if(orepo.findById( operatorId) !=null) {
+			if(orepo.findById( operatorId).orElse(null) !=null) {
 				orepo.deleteById( operatorId);
 				
 				msg = "Operator ID Number " +  operatorId + " is successfully deleted!";
