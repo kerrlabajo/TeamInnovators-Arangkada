@@ -71,12 +71,6 @@ public class OperatorEntity {
 	public boolean getIsDeleted() {
 		return isDeleted;
 	}
-
-	public void setIsDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
-	
-	
 	
 	
 }
