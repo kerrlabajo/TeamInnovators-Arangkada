@@ -34,6 +34,10 @@ public class RentalService {
 		return rentalRepository.findByVehicleOperatorOperatorId(id);
 	}
 	
+	public List<RentalEntity> getRentalsByStatusAndVehicleOperatorId(RentalStatus status, int id) {
+		return rentalRepository.findByStatusAndVehicleOperatorOperatorId(status, id);
+	}
+	
 	public List<RentalEntity> getRentalsByDriverId(int id) {
 		return rentalRepository.findByDriverDriverid(id);
 	}
