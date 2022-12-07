@@ -11,10 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
+
 
 
 	@Entity
 	@Table (name = "tbl_vehicle")
+	@SQLDelete(sql = "UPDATE tbl_vehicle SET is_deleted = true WHERE vehicle_id=?")
+	@Where(clause = "is_deleted=false")
 	public class VehicleEntity {
 		
 		// Mariel Genodiala BSIT- 3
@@ -36,6 +41,8 @@ import javax.persistence.Table;
 		private String vehicleCondition;
 		@Column(name="rental_fee")
 		private double rentalFee;
+		@Column(name="is_deleted")
+		private boolean isDeleted = Boolean.FALSE;
 		
 		public VehicleEntity() {}
 		
@@ -45,6 +52,8 @@ import javax.persistence.Table;
 		@OneToOne
 		@JoinColumn(name="operatorId")
 		OperatorEntity operator;
+		
+		
 
 		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel,
 				int vin, String orStatus, String vehicleCondition, double rentalFee, OperatorEntity operator) {
@@ -121,4 +130,8 @@ import javax.persistence.Table;
 		public void setOperator(OperatorEntity operator) {
 			this.operator = operator;
 		}
+		public boolean getIsDeleted() {
+			return isDeleted;
+		}
+		
 }

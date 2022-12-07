@@ -2,8 +2,8 @@ package com.innovators.Arangkada.Controller;
 
 
 import java.util.List;
-import javax.persistence.Column;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +19,7 @@ import com.innovators.Arangkada.Service.VehicleService;
 
 @RestController
 @RequestMapping("/vehicle")
+@CrossOrigin
 public class VehicleController {
 	
 	@Autowired
@@ -35,10 +36,19 @@ public class VehicleController {
 	}
 
 	@GetMapping("/getByPlateNumber")
-	@Column(name="plate_number")
+	
 	public VehicleEntity findByPlateNumber(@RequestParam String plateNumber){
 		return vserv.findByPlatenumber(plateNumber);
 	}
+	@GetMapping("/getByOperatorId/{operatorId}")
+	public List<VehicleEntity> findByOperatorOperatorId(@PathVariable int operatorId){
+		return vserv.findByOperatorOperatorId(operatorId);
+	}
+	@GetMapping("/getByVehicleType")
+	public List<VehicleEntity> findByVehicleType(@RequestParam String vehicleType){
+		return vserv.findByVehicleType(vehicleType);
+	}
+	
 	@PutMapping("/putVehicle")
 	public VehicleEntity putVehicle(@RequestParam int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
 		return vserv.putVehicle(vehicleid, newVehicleDetails);
