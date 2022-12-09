@@ -20,7 +20,7 @@ import com.innovators.Arangkada.Service.RentalService;
 
 @RestController
 @RequestMapping("/rental")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin
 public class RentalController {
 
 	@Autowired
