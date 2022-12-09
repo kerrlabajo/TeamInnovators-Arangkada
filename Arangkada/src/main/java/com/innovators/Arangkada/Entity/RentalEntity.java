@@ -37,6 +37,9 @@ public class RentalEntity {
 	@Enumerated(EnumType.STRING)
 	private RentalStatus status;
 	
+	@Column(name = "current")
+	private boolean current;
+	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicle_id")
 	private VehicleEntity vehicle;
@@ -47,13 +50,14 @@ public class RentalEntity {
 	
 	public RentalEntity() {}
 
-	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, VehicleEntity vehicle,
-			DriverEntity driver) {
+	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, boolean current,
+			VehicleEntity vehicle, DriverEntity driver) {
 		super();
 		this.rentalId = rentalId;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.status = status;
+		this.current = current;
 		this.vehicle = vehicle;
 		this.driver = driver;
 	}
@@ -85,6 +89,14 @@ public class RentalEntity {
 	public void setStatus(RentalStatus status) {
 		this.status = status;
 	}
+	
+	public boolean getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(boolean isPaid) {
+		this.current = isPaid;
+	}
 
 	public VehicleEntity getVehicle() {
 		return vehicle;
@@ -93,5 +105,6 @@ public class RentalEntity {
 	public DriverEntity getDriver() {
 		return driver;
 	}
+	
 	
 }
