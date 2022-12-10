@@ -29,6 +29,12 @@ public class VehicleService {
 		else 
 			return null;
 	}
+	public Optional<VehicleEntity> findByVehicleId(int vehicleId){
+		if (vrepo.findById(vehicleId) !=null)
+			return vrepo.findById(vehicleId);
+		else 
+			return null;
+	}
 	public List<VehicleEntity> findByOperatorOperatorId(int operatorId){
 		if (vrepo.findByOperatorOperatorId(operatorId) !=null)
 			return vrepo.findByOperatorOperatorId(operatorId);

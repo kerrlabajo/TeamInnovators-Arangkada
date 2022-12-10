@@ -2,6 +2,8 @@ package com.innovators.Arangkada.Controller;
 
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,9 +38,12 @@ public class VehicleController {
 	}
 
 	@GetMapping("/getByPlateNumber")
-	
 	public VehicleEntity findByPlateNumber(@RequestParam String plateNumber){
 		return vserv.findByPlatenumber(plateNumber);
+	}
+	@GetMapping("/getByVehicleId/{vehicleId}")
+	public Optional<VehicleEntity> findByVehicleId(@PathVariable int vehicleId){
+		return vserv.findByVehicleId(vehicleId);
 	}
 	@GetMapping("/getByOperatorId/{operatorId}")
 	public List<VehicleEntity> findByOperatorOperatorId(@PathVariable int operatorId){
