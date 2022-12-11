@@ -50,7 +50,7 @@ import org.hibernate.annotations.Where;
 //		private Set<OperatorEntity> operator;
 
 		@OneToOne
-		@JoinColumn(name="operatorId")
+		@JoinColumn(name="operator_id", referencedColumnName = "operatorId")
 		OperatorEntity operator;
 		
 		
