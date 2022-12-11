@@ -15,9 +15,9 @@ public class DriverEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private int driverid;
+	private int driverId;
 	
-	private String licensenumber;
+	private String licenseNumber;
 	private String licensecode;
 	
 	@OneToOne
@@ -28,36 +28,36 @@ public class DriverEntity {
 
 
 
-	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverId, String licenseNumber, String licensecode, AccountEntity account) {
 		super();
-		this.driverid = driverid;
-		this.licensenumber = licensenumber;
+		this.driverId = driverId;
+		this.licenseNumber = licenseNumber;
 		this.licensecode = licensecode;
 		this.account = account;
 	}
 
 
 
-	public int getDriverid() {
-		return driverid;
+	public int getDriverId() {
+		return driverId;
 	}
 
 
 
-	public void setDriverid(int driverid) {
-		this.driverid = driverid;
+	public void setDriverId(int driverId) {
+		this.driverId = driverId;
 	}
 
 
 
-	public String getLicensenumber() {
-		return licensenumber;
+	public String getLicenseNumber() {
+		return licenseNumber;
 	}
 
 
 
-	public void setLicensenumber(String licensenumber) {
-		this.licensenumber = licensenumber;
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
 	}
 
 
