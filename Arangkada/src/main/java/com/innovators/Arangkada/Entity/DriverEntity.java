@@ -21,7 +21,7 @@ public class DriverEntity {
 	private String licenseCode;
 	
 	@OneToOne
-	@JoinColumn(name="accountid")
+	@JoinColumn(name="account_id",  referencedColumnName = "accountId")
 	AccountEntity account;
 	
 	public DriverEntity() {}
