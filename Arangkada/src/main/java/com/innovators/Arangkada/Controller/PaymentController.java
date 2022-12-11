@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innovators.Arangkada.Entity.PaymentEntity;
-import com.innovators.Arangkada.Entity.RentalEntity;
 import com.innovators.Arangkada.Service.PaymentService;
 
 @RestController
