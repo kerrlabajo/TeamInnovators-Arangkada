@@ -25,19 +25,15 @@ public class RentalEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int rentalId;
 	
-	@Column(name = "start_date")
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
-	@Column(name = "end_date")
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
-	@Column(name = "status")
 	@Enumerated(EnumType.STRING)
 	private RentalStatus status;
 	
-	@Column(name = "current")
 	private boolean current;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)

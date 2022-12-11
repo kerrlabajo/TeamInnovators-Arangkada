@@ -25,23 +25,16 @@ import org.hibernate.annotations.Where;
 		// Mariel Genodiala BSIT- 3
 		@Id
 		@GeneratedValue (strategy= GenerationType.IDENTITY)
-		@Column(name="vehicle_id")
 		private int vehicleId;
-		@Column(name="plate_number")
+		
 		private String plateNumber;
 		private String route;
-		@Column(name="vehicle_type")
 		private String vehicleType;
-		@Column(name="make_model")
 		private String makeModel;
 		private int vin;
-		@Column(name="or_status")
 		private String orStatus;
-		@Column(name="vehicle_condition")
 		private String vehicleCondition;
-		@Column(name="rental_fee")
 		private double rentalFee;
-		@Column(name="is_deleted")
 		private boolean isDeleted = Boolean.FALSE;
 		
 		public VehicleEntity() {}
