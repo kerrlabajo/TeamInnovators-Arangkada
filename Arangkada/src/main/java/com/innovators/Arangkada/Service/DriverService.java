@@ -28,42 +28,42 @@ public class DriverService {
 		return drepo.findAll(); 		
 	}
 	
-	public DriverEntity findByDriverId (int driverid) {
-		if (drepo.findByDriverid(driverid)!=null)
-			return drepo.findByDriverid(driverid);
+	public DriverEntity findByDriverId (int driverId) {
+		if (drepo.findByDriverId(driverId)!=null)
+			return drepo.findByDriverId(driverId);
 		else
 			return null;
 	}
 	
 	//Update 
-	public DriverEntity putDriver(int driverid, DriverEntity newDriverDetails) throws Exception{
+	public DriverEntity putDriver(int driverId, DriverEntity newDriverDetails) throws Exception{
 	
 	DriverEntity driver = new DriverEntity();
 	
 	try {
 		
-		driver = drepo.findById(driverid).get(); 
+		driver = drepo.findById(driverId).get(); 
 		
-		driver.setLicensenumber(newDriverDetails.getLicensenumber());
-		driver.setLicensecode(newDriverDetails.getLicensecode());
+		driver.setLicenseNumber(newDriverDetails.getLicenseNumber());
+		driver.setLicenseCode(newDriverDetails.getLicenseCode());
 
 		return drepo.save(driver);
 		
 	}catch(NoSuchElementException nex) {
-		throw new Exception("Driver ID " + driverid + " does not exist!");		
+		throw new Exception("Driver ID " + driverId + " does not exist!");		
 		}
 	}
 	
 	//Delete 
-	public String deleteDriver(int driverid) {
+	public String deleteDriver(int driverId) {
 		String msg;
-		if(drepo.findById(driverid) != null) {       
-			drepo.deleteById(driverid);				
+		if(drepo.findById(driverId) != null) {       
+			drepo.deleteById(driverId);				
 				
-			msg = "Driver ID " + driverid + " is successfully deleted!";
+			msg = "Driver ID " + driverId + " is successfully deleted!";
 		}
 		else
-			msg = "Driver " + driverid + " is NOT found!";
+			msg = "Driver " + driverId + " is NOT found!";
 		
 		return msg;
 	}
