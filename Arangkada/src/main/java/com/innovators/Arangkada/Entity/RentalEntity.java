@@ -41,11 +41,11 @@ public class RentalEntity {
 	private boolean current;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicle_id")
+	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicleId")
 	private VehicleEntity vehicle;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "driver_id", referencedColumnName = "driverid")
+	@JoinColumn(name = "driver_id", referencedColumnName = "driverId")
 	private DriverEntity driver;
 	
 	public RentalEntity() {}
