@@ -40,11 +40,11 @@ public class RentalService {
 	}
 	
 	public List<RentalEntity> getRentalsByDriverId(int id) {
-		return rentalRepository.findByDriverDriverid(id);
+		return rentalRepository.findByDriverDriverId(id);
 	}
 	
 	public RentalEntity getCurrentRentalByDriverId(int id) {
-		return rentalRepository.findByCurrentAndDriverDriverid(true, id);
+		return rentalRepository.findByCurrentAndDriverDriverId(true, id);
 	}
 	
 	// Update
