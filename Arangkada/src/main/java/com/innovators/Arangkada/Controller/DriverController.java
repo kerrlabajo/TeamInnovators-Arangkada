@@ -38,21 +38,21 @@ public class DriverController {
 		return dserv.getAllDriver(); 	
 	}
 	
-	@GetMapping("/getByDriverid")
-	public DriverEntity findByDriverId(@RequestParam int driverid) {
-		return dserv.findByDriverId(driverid);	
+	@GetMapping("/getByDriverId")
+	public DriverEntity findByDriverId(@RequestParam int driverId) {
+		return dserv.findByDriverId(driverId);	
 	}
 	
 	//Update 
 	@PutMapping("/putDriver")
-	public DriverEntity putDriver(@RequestParam int driverid, @RequestBody DriverEntity newDriverDetails) throws Exception{
-		return dserv.putDriver(driverid, newDriverDetails);
+	public DriverEntity putDriver(@RequestParam int driverId, @RequestBody DriverEntity newDriverDetails) throws Exception{
+		return dserv.putDriver(driverId, newDriverDetails);
 	}
 	
 	//Delete 
-	@DeleteMapping("/deleteDriver/{driverid}")
-	public String deleteDriver(@PathVariable int driverid) {
-		return dserv.deleteDriver(driverid);
+	@DeleteMapping("/deleteDriver/{driverId}")
+	public String deleteDriver(@PathVariable int driverId) {
+		return dserv.deleteDriver(driverId);
 	}
 
 }
