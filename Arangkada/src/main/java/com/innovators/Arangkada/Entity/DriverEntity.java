@@ -18,7 +18,7 @@ public class DriverEntity {
 	private int driverId;
 	
 	private String licenseNumber;
-	private String licensecode;
+	private String licenseCode;
 	
 	@OneToOne
 	@JoinColumn(name="accountid")
@@ -28,11 +28,11 @@ public class DriverEntity {
 
 
 
-	public DriverEntity(int driverId, String licenseNumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverId, String licenseNumber, String licenseCode, AccountEntity account) {
 		super();
 		this.driverId = driverId;
 		this.licenseNumber = licenseNumber;
-		this.licensecode = licensecode;
+		this.licenseCode = licenseCode;
 		this.account = account;
 	}
 
@@ -62,14 +62,14 @@ public class DriverEntity {
 
 
 
-	public String getLicensecode() {
-		return licensecode;
+	public String getLicenseCode() {
+		return licenseCode;
 	}
 
 
 
-	public void setLicensecode(String licensecode) {
-		this.licensecode = licensecode;
+	public void setLicenseCode(String licenseCode) {
+		this.licenseCode = licenseCode;
 	}
 
 
