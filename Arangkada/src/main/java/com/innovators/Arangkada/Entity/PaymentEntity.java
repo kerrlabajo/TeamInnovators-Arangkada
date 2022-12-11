@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,7 +27,7 @@ public class PaymentEntity {
 	@JsonFormat(shape =JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private Date datePaid;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "rental_id", referencedColumnName = "rentalId")
 	private RentalEntity rental;
 
