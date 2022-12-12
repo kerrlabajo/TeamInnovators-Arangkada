@@ -53,9 +53,13 @@ public class VehicleController {
 	public List<VehicleEntity> findByVehicleType(@RequestParam String vehicleType){
 		return vserv.findByVehicleType(vehicleType);
 	}
+	@GetMapping("/getByIsRentedAndVehicleTypeAndVehicleCondition")
+	public List<VehicleEntity> findByIsRentedAndVehicleTypeAndVehicleCondition(@RequestParam boolean isRented, String vehicleType, String vehicleCondition){
+		return vserv.findByIsRentedAndVehicleTypeAndVehicleCondition(isRented, vehicleType, vehicleCondition);
+	}
 	
-	@PutMapping("/putVehicle")
-	public VehicleEntity putVehicle(@RequestParam int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
+	@PutMapping("/putVehicle/{vehicleid}")
+	public VehicleEntity putVehicle(@PathVariable int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
 		return vserv.putVehicle(vehicleid, newVehicleDetails);
 	}
 
