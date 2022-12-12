@@ -47,6 +47,12 @@ public class VehicleService {
 		else 
 			return null;
 	}
+	public List<VehicleEntity> findByIsRentedAndVehicleTypeAndVehicleCondition(boolean isRented, String vehicleType, String vehicleCondition){
+		if (vrepo.findByIsRentedAndVehicleTypeAndVehicleCondition(isRented, vehicleType, vehicleCondition) !=null)
+			return vrepo.findByIsRentedAndVehicleTypeAndVehicleCondition(isRented, vehicleType, vehicleCondition);
+		else 
+			return null;
+	}
 	public VehicleEntity putVehicle(int vehicleId, VehicleEntity newVehicleDetails) throws Exception{
 		VehicleEntity vehicle = new VehicleEntity();
 		try {
