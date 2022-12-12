@@ -33,7 +33,6 @@ import org.hibernate.annotations.Where;
 		private String vehicleCondition;
 		private double rentalFee;
 		private boolean isDeleted = Boolean.FALSE;
-		@Column(name="is_rented")
 		private boolean isRented = Boolean.FALSE;
 		public VehicleEntity() {}
 		
