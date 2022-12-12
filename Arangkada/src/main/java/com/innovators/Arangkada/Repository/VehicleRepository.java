@@ -14,5 +14,6 @@ public interface VehicleRepository extends JpaRepository<VehicleEntity, Integer>
 	VehicleEntity findByPlateNumber(String plateNumber);
 	List<VehicleEntity> findByOperatorOperatorId(int operatorId);
 	List<VehicleEntity> findByVehicleType(String vehicleType);
+	List<VehicleEntity> findByIsRentedAndVehicleTypeAndVehicleCondition(boolean isRented, String vehicleType, String vehicleCondition);
 	
 }
