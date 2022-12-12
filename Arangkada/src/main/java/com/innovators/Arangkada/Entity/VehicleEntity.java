@@ -33,7 +33,8 @@ import org.hibernate.annotations.Where;
 		private String vehicleCondition;
 		private double rentalFee;
 		private boolean isDeleted = Boolean.FALSE;
-		
+		@Column(name="is_rented")
+		private boolean isRented = Boolean.FALSE;
 		public VehicleEntity() {}
 		
 //		@OneToMany(cascade = CascadeType.MERGE)
@@ -45,8 +46,9 @@ import org.hibernate.annotations.Where;
 		
 		
 
-		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel,
-				int vin, String orStatus, String vehicleCondition, double rentalFee, OperatorEntity operator) {
+		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel, int vin,
+		String orStatus, String vehicleCondition, double rentalFee, boolean isDeleted, boolean isRented,
+		OperatorEntity operator) {
 			super();
 			this.vehicleId = vehicleId;
 			this.plateNumber = plateNumber;
@@ -56,9 +58,12 @@ import org.hibernate.annotations.Where;
 			this.vin = vin;
 			this.orStatus = orStatus;
 			this.vehicleCondition = vehicleCondition;
-			this.rentalFee=rentalFee;
+			this.rentalFee = rentalFee;
+			this.isDeleted = isDeleted;
+			this.isRented = isRented;
 			this.operator = operator;
 		}
+
 		public String getRoute() {
 			return route;
 		}
@@ -122,6 +127,12 @@ import org.hibernate.annotations.Where;
 		}
 		public boolean getIsDeleted() {
 			return isDeleted;
+		}
+		public boolean isRented() {
+			return isRented;
+		}
+		public void setRented(boolean isRented) {
+			this.isRented = isRented;
 		}
 		
 }
