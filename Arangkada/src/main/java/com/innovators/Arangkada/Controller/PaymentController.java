@@ -18,7 +18,7 @@ import com.innovators.Arangkada.Service.PaymentService;
 
 @RestController
 @RequestMapping("/payment")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin
 public class PaymentController {
 
 	@Autowired
