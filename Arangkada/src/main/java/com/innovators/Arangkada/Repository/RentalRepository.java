@@ -14,5 +14,6 @@ public interface RentalRepository extends JpaRepository<RentalEntity, Integer>{
 	public List<RentalEntity> findByVehicleOperatorOperatorId(int id);
 	public List<RentalEntity> findByStatusAndVehicleOperatorOperatorId(RentalStatus status, int id);
 	public List<RentalEntity> findByDriverDriverId(int id);
+	public List<RentalEntity> findByCurrentAndStatusIsNotAndVehicleOperatorOperatorId(boolean current, RentalStatus status, int id);
 	public RentalEntity findByCurrentAndDriverDriverId(boolean current, int id);
 }

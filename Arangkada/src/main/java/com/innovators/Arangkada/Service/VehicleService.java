@@ -53,6 +53,19 @@ public class VehicleService {
 		else 
 			return null;
 	}
+	
+	public VehicleEntity putVehicleRented(int vehicleid, boolean rented) throws Exception {
+		VehicleEntity vehicle = new VehicleEntity();
+		try {
+			vehicle = vrepo.findById(vehicleid).get();
+			vehicle.setRented(rented);
+			return vrepo.save(vehicle);
+		}
+		catch(NoSuchElementException nex) {
+			throw new Exception("ID Number "+vehicleid+" does not exist!");
+		}
+	}
+	
 	public VehicleEntity putVehicle(int vehicleId, VehicleEntity newVehicleDetails) throws Exception{
 		VehicleEntity vehicle = new VehicleEntity();
 		try {

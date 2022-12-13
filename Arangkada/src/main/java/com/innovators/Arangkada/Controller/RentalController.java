@@ -58,6 +58,11 @@ public class RentalController {
 		return rentalService.getRentalsByDriverId(id);
 	}
 	
+	@GetMapping("/getCurrentRentalsByOperatorId/{id}")
+	public List<RentalEntity> getCurrentRentalsByOperatorId(@PathVariable int id) {
+		return rentalService.getCurrentRentalsByOperatorId(id);
+	}
+	
 	@GetMapping("/getCurrentRentalByDriverId/{id}")
 	public RentalEntity getCurrentRentalByDriverId(@PathVariable int id) {
 		return rentalService.getCurrentRentalByDriverId(id);

@@ -43,6 +43,10 @@ public class RentalService {
 		return rentalRepository.findByDriverDriverId(id);
 	}
 	
+	public List<RentalEntity> getCurrentRentalsByOperatorId(int id) {
+		return rentalRepository.findByCurrentAndStatusIsNotAndVehicleOperatorOperatorId(true, RentalStatus.PENDING, id);
+	}
+
 	public RentalEntity getCurrentRentalByDriverId(int id) {
 		return rentalRepository.findByCurrentAndDriverDriverId(true, id);
 	}
