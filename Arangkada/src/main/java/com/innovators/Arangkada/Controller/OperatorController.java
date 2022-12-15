@@ -1,8 +1,10 @@
 package com.innovators.Arangkada.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import com.innovators.Arangkada.Service.OperatorService;
 
 @RestController
 @RequestMapping("/operator")
+@CrossOrigin
 public class OperatorController {
 	
 	@Autowired
@@ -40,6 +43,17 @@ public class OperatorController {
 	public OperatorEntity findByPermitnumber(@RequestParam String permitNumber) {
 		return oserve.findByPermitnumber(permitNumber);
 	}
+	
+	@GetMapping("/getByAccountId/{accountId}")
+	public List<OperatorEntity> findByAccountAccountId(@PathVariable int accountId){
+		return oserve.findByAccountAccountId(accountId);
+	}
+	
+	@GetMapping("/getByOperatorId/{operatorId}")
+	public Optional<OperatorEntity> findByOperatorId(@PathVariable int operatorId){
+		return oserve.findByOperatorId(operatorId);
+	}
+	
 		
 	//Update
 	@PutMapping("/putOperator")
