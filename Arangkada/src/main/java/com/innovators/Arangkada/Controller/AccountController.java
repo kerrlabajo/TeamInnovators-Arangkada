@@ -1,8 +1,10 @@
 package com.innovators.Arangkada.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import com.innovators.Arangkada.Service.AccountService;
 
 @RestController
 @RequestMapping("/account")
+@CrossOrigin
 public class AccountController {
 	
 	@Autowired
@@ -34,6 +37,11 @@ public class AccountController {
 	public List<AccountEntity> getAllAccounts(){
 		return aserve.getAllAccounts();
 	}
+	
+	@GetMapping("/getAccountById/{accountId}")
+	public Optional<AccountEntity> findByAccountId(@PathVariable int accountId){
+		return aserve.findByAccountId(accountId);
+	}
 		
 	//Read a record by Username
 	@GetMapping("/getByUsername")
@@ -43,8 +51,8 @@ public class AccountController {
 	
 	//Update a record
 	@PutMapping("/putAccount")
-	public AccountEntity putStudent(@RequestParam int accountId, @RequestBody AccountEntity newAccountDetails) throws Exception{
-		return aserve.putStudent(accountId, newAccountDetails);
+	public AccountEntity putAccount(@RequestParam int accountId, @RequestBody AccountEntity newAccountDetails) throws Exception{
+		return aserve.putAccount(accountId, newAccountDetails);
 	}
 		
 	//Delete a record
