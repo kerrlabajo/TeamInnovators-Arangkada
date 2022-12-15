@@ -22,7 +22,7 @@ public class DriverService {
 	}
 	
 	//Read
-	public List<DriverEntity> getAllDriver(){
+	public List<DriverEntity> getAllDrivers(){
 		return drepo.findAll(); 		
 	}
 	
