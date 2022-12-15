@@ -1,53 +1,53 @@
 package com.innovators.Arangkada.Entity;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 
 
 	@Entity
 	@Table (name = "tbl_vehicle")
+	@SQLDelete(sql = "UPDATE tbl_vehicle SET is_deleted = true WHERE vehicle_id=?")
+	@Where(clause = "is_deleted=false")
 	public class VehicleEntity {
 		
 		// Mariel Genodiala BSIT- 3
 		@Id
 		@GeneratedValue (strategy= GenerationType.IDENTITY)
-		@Column(name="vehicle_id")
 		private int vehicleId;
-		@Column(name="plate_number")
+		
 		private String plateNumber;
 		private String route;
-		@Column(name="vehicle_type")
 		private String vehicleType;
-		@Column(name="make_model")
 		private String makeModel;
 		private int vin;
-		@Column(name="or_status")
 		private String orStatus;
-		@Column(name="vehicle_condition")
 		private String vehicleCondition;
-		@Column(name="rental_fee")
 		private double rentalFee;
-		
+		private boolean isDeleted = Boolean.FALSE;
+		private boolean isRented = Boolean.FALSE;
 		public VehicleEntity() {}
 		
 //		@OneToMany(cascade = CascadeType.MERGE)
 //		private Set<OperatorEntity> operator;
 
-		@OneToOne
-		@JoinColumn(name="operatorId")
+		@ManyToOne
+		@JoinColumn(name="operator_id", referencedColumnName = "operatorId")
 		OperatorEntity operator;
+		
+		
 
-		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel,
-				int vin, String orStatus, String vehicleCondition, double rentalFee, OperatorEntity operator) {
+		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel, int vin,
+		String orStatus, String vehicleCondition, double rentalFee, boolean isDeleted, boolean isRented,
+		OperatorEntity operator) {
 			super();
 			this.vehicleId = vehicleId;
 			this.plateNumber = plateNumber;
@@ -57,9 +57,12 @@ import javax.persistence.Table;
 			this.vin = vin;
 			this.orStatus = orStatus;
 			this.vehicleCondition = vehicleCondition;
-			this.rentalFee=rentalFee;
+			this.rentalFee = rentalFee;
+			this.isDeleted = isDeleted;
+			this.isRented = isRented;
 			this.operator = operator;
 		}
+
 		public String getRoute() {
 			return route;
 		}
@@ -121,4 +124,14 @@ import javax.persistence.Table;
 		public void setOperator(OperatorEntity operator) {
 			this.operator = operator;
 		}
+		public boolean getIsDeleted() {
+			return isDeleted;
+		}
+		public boolean isRented() {
+			return isRented;
+		}
+		public void setRented(boolean isRented) {
+			this.isRented = isRented;
+		}
+		
 }

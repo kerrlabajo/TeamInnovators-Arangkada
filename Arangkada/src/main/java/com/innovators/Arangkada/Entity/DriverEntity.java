@@ -15,61 +15,61 @@ public class DriverEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	private int driverid;
+	private int driverId;
 	
-	private String licensenumber;
-	private String licensecode;
+	private String licenseNumber;
+	private String licenseCode;
 	
 	@OneToOne
-	@JoinColumn(name="accountid")
+	@JoinColumn(name="account_id",  referencedColumnName = "accountId")
 	AccountEntity account;
 	
 	public DriverEntity() {}
 
 
 
-	public DriverEntity(int driverid, String licensenumber, String licensecode, AccountEntity account) {
+	public DriverEntity(int driverId, String licenseNumber, String licenseCode, AccountEntity account) {
 		super();
-		this.driverid = driverid;
-		this.licensenumber = licensenumber;
-		this.licensecode = licensecode;
+		this.driverId = driverId;
+		this.licenseNumber = licenseNumber;
+		this.licenseCode = licenseCode;
 		this.account = account;
 	}
 
 
 
-	public int getDriverid() {
-		return driverid;
+	public int getDriverId() {
+		return driverId;
 	}
 
 
 
-	public void setDriverid(int driverid) {
-		this.driverid = driverid;
+	public void setDriverId(int driverId) {
+		this.driverId = driverId;
 	}
 
 
 
-	public String getLicensenumber() {
-		return licensenumber;
+	public String getLicenseNumber() {
+		return licenseNumber;
 	}
 
 
 
-	public void setLicensenumber(String licensenumber) {
-		this.licensenumber = licensenumber;
+	public void setLicenseNumber(String licenseNumber) {
+		this.licenseNumber = licenseNumber;
 	}
 
 
 
-	public String getLicensecode() {
-		return licensecode;
+	public String getLicenseCode() {
+		return licenseCode;
 	}
 
 
 
-	public void setLicensecode(String licensecode) {
-		this.licensecode = licensecode;
+	public void setLicenseCode(String licenseCode) {
+		this.licenseCode = licenseCode;
 	}
 
 

@@ -2,8 +2,10 @@ package com.innovators.Arangkada.Controller;
 
 
 import java.util.List;
-import javax.persistence.Column;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +21,7 @@ import com.innovators.Arangkada.Service.VehicleService;
 
 @RestController
 @RequestMapping("/vehicle")
+@CrossOrigin
 public class VehicleController {
 	
 	@Autowired
@@ -35,12 +38,33 @@ public class VehicleController {
 	}
 
 	@GetMapping("/getByPlateNumber")
-	@Column(name="plate_number")
 	public VehicleEntity findByPlateNumber(@RequestParam String plateNumber){
 		return vserv.findByPlatenumber(plateNumber);
 	}
-	@PutMapping("/putVehicle")
-	public VehicleEntity putVehicle(@RequestParam int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
+	@GetMapping("/getByVehicleId/{vehicleId}")
+	public Optional<VehicleEntity> findByVehicleId(@PathVariable int vehicleId){
+		return vserv.findByVehicleId(vehicleId);
+	}
+	@GetMapping("/getByOperatorId/{operatorId}")
+	public List<VehicleEntity> findByOperatorOperatorId(@PathVariable int operatorId){
+		return vserv.findByOperatorOperatorId(operatorId);
+	}
+	@GetMapping("/getByVehicleType")
+	public List<VehicleEntity> findByVehicleType(@RequestParam String vehicleType){
+		return vserv.findByVehicleType(vehicleType);
+	}
+	@GetMapping("/getByIsRentedAndVehicleTypeAndVehicleCondition")
+	public List<VehicleEntity> findByIsRentedAndVehicleTypeAndVehicleCondition(@RequestParam boolean isRented, @RequestParam String vehicleType, @RequestParam String vehicleCondition){
+		return vserv.findByIsRentedAndVehicleTypeAndVehicleCondition(isRented, vehicleType, vehicleCondition);
+	}
+	
+	@PutMapping("/putVehicleRented/{vehicleid}")
+	public VehicleEntity putVehicleRented(@PathVariable int vehicleid, @RequestParam boolean rented) throws Exception {
+		return vserv.putVehicleRented(vehicleid, rented);
+	}
+	
+	@PutMapping("/putVehicle/{vehicleid}")
+	public VehicleEntity putVehicle(@PathVariable int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
 		return vserv.putVehicle(vehicleid, newVehicleDetails);
 	}
 

@@ -10,6 +10,6 @@ import com.innovators.Arangkada.Entity.DriverEntity;
 @Repository
 public interface DriverRepository extends JpaRepository<DriverEntity, Integer> {
 	
-	DriverEntity findByDriverid(int driverid);
+	DriverEntity findByDriverId(int driverId);
 
 }

@@ -17,7 +17,8 @@ public class RentalService {
 	
 	// Create
 	public RentalEntity postRental(RentalEntity rental) {
-		rental.setStatus(RentalStatus.PENDING);	
+		rental.setStatus(RentalStatus.PENDING);
+		rental.setCurrent(true);
 		return rentalRepository.save(rental);
 	}
 	
@@ -34,14 +35,21 @@ public class RentalService {
 		return rentalRepository.findByVehicleOperatorOperatorId(id);
 	}
 	
+	public List<RentalEntity> getRentalsByStatusAndVehicleOperatorId(RentalStatus status, int id) {
+		return rentalRepository.findByStatusAndVehicleOperatorOperatorId(status, id);
+	}
+	
 	public List<RentalEntity> getRentalsByDriverId(int id) {
-		return rentalRepository.findByDriverDriverid(id);
+		return rentalRepository.findByDriverDriverId(id);
 	}
 	
+	public List<RentalEntity> getCurrentRentalsByOperatorId(int id) {
+		return rentalRepository.findByCurrentAndStatusIsNotAndVehicleOperatorOperatorId(true, RentalStatus.PENDING, id);
+	}
+
 	public RentalEntity getCurrentRentalByDriverId(int id) {
-		return rentalRepository.findCurrentByDriverId(id);
+		return rentalRepository.findByCurrentAndDriverDriverId(true, id);
 	}
-	
 	
 	// Update
 	public RentalEntity putRental(int id, RentalEntity newRentalDetails) {
@@ -50,6 +58,7 @@ public class RentalService {
 			rental.setStartDate(newRentalDetails.getStartDate());
 			rental.setEndDate(newRentalDetails.getEndDate());
 			rental.setStatus(newRentalDetails.getStatus());
+			rental.setCurrent(newRentalDetails.getCurrent());
 			return rentalRepository.save(rental);
 		}	
 		return null;

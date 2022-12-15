@@ -11,14 +11,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.innovators.Arangkada.Entity.RentalEntity;
+import com.innovators.Arangkada.Enum.RentalStatus;
 import com.innovators.Arangkada.Service.RentalService;
 
 @RestController
 @RequestMapping("/rental")
-@CrossOrigin("http://localhost:3000/")
+@CrossOrigin
 public class RentalController {
 
 	@Autowired
@@ -46,9 +48,19 @@ public class RentalController {
 		return rentalService.getRentalsByVehicleOperatorId(id);
 	}
 	
+	@GetMapping("/getRentalsByStatusAndVehicleOperatorId/{id}")
+	public List<RentalEntity> getRentalsByStatusAndVehicleOperatorId(@RequestParam RentalStatus status, @PathVariable int id) {
+		return rentalService.getRentalsByStatusAndVehicleOperatorId(status, id);
+	}
+	
 	@GetMapping("/getRentalsByDriverId/{id}")
 	public List<RentalEntity> getRentalsByDriverId(@PathVariable int id) {
 		return rentalService.getRentalsByDriverId(id);
+	}
+	
+	@GetMapping("/getCurrentRentalsByOperatorId/{id}")
+	public List<RentalEntity> getCurrentRentalsByOperatorId(@PathVariable int id) {
+		return rentalService.getCurrentRentalsByOperatorId(id);
 	}
 	
 	@GetMapping("/getCurrentRentalByDriverId/{id}")

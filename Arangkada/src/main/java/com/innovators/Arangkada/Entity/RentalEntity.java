@@ -3,7 +3,6 @@ package com.innovators.Arangkada.Entity;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -25,35 +24,35 @@ public class RentalEntity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int rentalId;
 	
-	@Column(name = "start_date")
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
-	@Column(name = "end_date")
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	
-	@Column(name = "status")
 	@Enumerated(EnumType.STRING)
 	private RentalStatus status;
 	
+	private boolean current;
+	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicle_id")
+	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicleId")
 	private VehicleEntity vehicle;
 	
 	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "driver_id", referencedColumnName = "driverid")
+	@JoinColumn(name = "driver_id", referencedColumnName = "driverId")
 	private DriverEntity driver;
 	
 	public RentalEntity() {}
 
-	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, VehicleEntity vehicle,
-			DriverEntity driver) {
+	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, boolean current,
+			VehicleEntity vehicle, DriverEntity driver) {
 		super();
 		this.rentalId = rentalId;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.status = status;
+		this.current = current;
 		this.vehicle = vehicle;
 		this.driver = driver;
 	}
@@ -85,6 +84,14 @@ public class RentalEntity {
 	public void setStatus(RentalStatus status) {
 		this.status = status;
 	}
+	
+	public boolean getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(boolean isPaid) {
+		this.current = isPaid;
+	}
 
 	public VehicleEntity getVehicle() {
 		return vehicle;
@@ -93,5 +100,6 @@ public class RentalEntity {
 	public DriverEntity getDriver() {
 		return driver;
 	}
+	
 	
 }
