@@ -2,6 +2,7 @@ package com.innovators.Arangkada.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +33,15 @@ public class AccountService {
 			return null;
 	}
 	
+	public Optional<AccountEntity> findByAccountId(int accountId){
+		if(arepo.findById(accountId) != null)
+			return arepo.findById(accountId);
+		else
+			return null;
+	}
+	
 	//Update
-	public AccountEntity putStudent(int accountId, AccountEntity newAccountDetails) throws Exception{
+	public AccountEntity putAccount(int accountId, AccountEntity newAccountDetails) throws Exception{
 			
 		AccountEntity account = new AccountEntity();
 			
