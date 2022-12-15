@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.innovators.Arangkada.Entity.DriverEntity;
-import com.innovators.Arangkada.Entity.OperatorEntity;
 import com.innovators.Arangkada.Repository.DriverRepository;
 
 @Service
