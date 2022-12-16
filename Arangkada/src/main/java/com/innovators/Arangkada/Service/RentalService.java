@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.innovators.Arangkada.Entity.RentalEntity;
 import com.innovators.Arangkada.Enum.RentalStatus;
@@ -23,31 +24,33 @@ public class RentalService {
 	}
 	
 	// Read
-	public List<RentalEntity> getAllRentals() {
-		return rentalRepository.findAll();
-	}
-	
-	public RentalEntity getRentalById(int id) {
-		return rentalRepository.findById(id).orElse(null);
-	}
-	
+	@Transactional
 	public List<RentalEntity> getRentalsByVehicleOperatorId(int id) {
+		updateRentalStatus();
 		return rentalRepository.findByVehicleOperatorOperatorId(id);
 	}
 	
+	@Transactional
 	public List<RentalEntity> getRentalsByStatusAndVehicleOperatorId(RentalStatus status, int id) {
+		updateRentalStatus();
 		return rentalRepository.findByStatusAndVehicleOperatorOperatorId(status, id);
 	}
 	
+	@Transactional
 	public List<RentalEntity> getRentalsByDriverId(int id) {
+		updateRentalStatus();
 		return rentalRepository.findByDriverDriverId(id);
 	}
 	
+	@Transactional
 	public List<RentalEntity> getCurrentRentalsByOperatorId(int id) {
+		updateRentalStatus();
 		return rentalRepository.findByCurrentAndStatusIsNotAndVehicleOperatorOperatorId(true, RentalStatus.PENDING, id);
 	}
 
+	@Transactional
 	public RentalEntity getCurrentRentalByDriverId(int id) {
+		updateRentalStatus();
 		return rentalRepository.findByCurrentAndDriverDriverId(true, id);
 	}
 	
@@ -73,5 +76,10 @@ public class RentalService {
 			return msg;
 		}	
 		return msg;
+	}
+	
+	public void updateRentalStatus() {
+		rentalRepository.updateStatusExpired();
+		rentalRepository.updateStatusFinished();
 	}
 }
