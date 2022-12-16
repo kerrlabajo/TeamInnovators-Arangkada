@@ -34,6 +34,7 @@ import org.hibernate.annotations.Where;
 		private double rentalFee;
 		private boolean isDeleted = Boolean.FALSE;
 		private boolean isRented = Boolean.FALSE;
+		private String deletionReason;
 		public VehicleEntity() {}
 		
 //		@OneToMany(cascade = CascadeType.MERGE)
@@ -45,9 +46,10 @@ import org.hibernate.annotations.Where;
 		
 		
 
+		
 		public VehicleEntity(int vehicleId, String plateNumber, String route, String vehicleType, String makeModel, int vin,
 		String orStatus, String vehicleCondition, double rentalFee, boolean isDeleted, boolean isRented,
-		OperatorEntity operator) {
+		String deletionReason, OperatorEntity operator) {
 			super();
 			this.vehicleId = vehicleId;
 			this.plateNumber = plateNumber;
@@ -60,6 +62,7 @@ import org.hibernate.annotations.Where;
 			this.rentalFee = rentalFee;
 			this.isDeleted = isDeleted;
 			this.isRented = isRented;
+			this.deletionReason = deletionReason;
 			this.operator = operator;
 		}
 
@@ -112,12 +115,6 @@ import org.hibernate.annotations.Where;
 		public int getVin() {
 			return vin;
 		}
-//		public Set<OperatorEntity> getOperator() {
-//			return operator;
-//		}
-//		public void setOperator(Set<OperatorEntity> operator) {
-//			this.operator = operator;
-//		}
 		public OperatorEntity getOperator() {
 			return operator;
 		}
@@ -133,5 +130,14 @@ import org.hibernate.annotations.Where;
 		public void setRented(boolean isRented) {
 			this.isRented = isRented;
 		}
+
+		public String getDeletionReason() {
+			return deletionReason;
+		}
+
+		public void setDeletionReason(String deletionReason) {
+			this.deletionReason = deletionReason;
+		}
+		
 		
 }
