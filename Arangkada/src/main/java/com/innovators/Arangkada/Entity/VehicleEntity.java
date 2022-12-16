@@ -1,5 +1,6 @@
 package com.innovators.Arangkada.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -14,7 +16,8 @@ import org.hibernate.annotations.Where;
 
 
 	@Entity
-	@Table (name = "tbl_vehicle")
+	@Table (name = "tbl_vehicle",uniqueConstraints = {
+			@UniqueConstraint( name="UniquePlateNumberAndVIN", columnNames = {"plateNumber", "vin"})})
 	@SQLDelete(sql = "UPDATE tbl_vehicle SET is_deleted = true WHERE vehicle_id=?")
 	@Where(clause = "is_deleted=false")
 	public class VehicleEntity {
@@ -24,10 +27,13 @@ import org.hibernate.annotations.Where;
 		@GeneratedValue (strategy= GenerationType.IDENTITY)
 		private int vehicleId;
 		
+		@Column(unique=true)
 		private String plateNumber;
 		private String route;
 		private String vehicleType;
 		private String makeModel;
+		
+		@Column(unique=true)
 		private int vin;
 		private String orStatus;
 		private String vehicleCondition;
@@ -37,8 +43,6 @@ import org.hibernate.annotations.Where;
 		private String deletionReason;
 		public VehicleEntity() {}
 		
-//		@OneToMany(cascade = CascadeType.MERGE)
-//		private Set<OperatorEntity> operator;
 
 		@ManyToOne
 		@JoinColumn(name="operator_id", referencedColumnName = "operatorId")
