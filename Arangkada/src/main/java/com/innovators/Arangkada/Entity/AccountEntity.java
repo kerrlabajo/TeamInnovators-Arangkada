@@ -2,6 +2,7 @@ package com.innovators.Arangkada.Entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -16,7 +18,7 @@ import org.hibernate.annotations.Where;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name="tbl_account")
+@Table(name="tbl_account", uniqueConstraints = {@UniqueConstraint(columnNames = { "username" })})
 @SQLDelete(sql = "UPDATE tbl_account SET is_deleted = true WHERE account_id=?")
 @Where(clause = "is_deleted=false")
 public class AccountEntity {
@@ -38,7 +40,10 @@ public class AccountEntity {
 	private String contactNumber;
 	private String address;
 	private String gender;
+	
+	@Column(unique=true)
 	private String username;
+	
 	private String password;
 	private String accountType;
 	private boolean isDeleted = Boolean.FALSE;
