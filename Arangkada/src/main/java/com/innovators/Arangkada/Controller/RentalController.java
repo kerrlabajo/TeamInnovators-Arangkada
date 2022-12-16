@@ -33,16 +33,6 @@ public class RentalController {
 	}
 	
 	// Read
-	@GetMapping("/getAllRentals")
-	public List<RentalEntity> getAllRentals() {
-		return rentalService.getAllRentals();
-	}
-	
-	@GetMapping("/getRentalById/{id}")
-	public RentalEntity getRentalById(@PathVariable int id) {
-		return rentalService.getRentalById(id);
-	}
-	
 	@GetMapping("/getRentalsByVehicleOperatorId/{id}")
 	public List<RentalEntity> getRentalsByVehicleOperatorId(@PathVariable int id) {
 		return rentalService.getRentalsByVehicleOperatorId(id);
