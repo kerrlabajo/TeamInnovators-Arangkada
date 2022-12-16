@@ -80,6 +80,18 @@ public class VehicleService {
 			throw new Exception("ID Number "+vehicleId+" does not exist!");
 		}
 	}
+	public VehicleEntity putReason(int vehicleId, VehicleEntity newVehicleDetails) throws Exception{
+		VehicleEntity vehicle = new VehicleEntity();
+		try {
+			vehicle = vrepo.findById(vehicleId).get();
+			vehicle.setDeletionReason(newVehicleDetails.getDeletionReason());
+			return vrepo.save(vehicle);
+		}
+		catch(NoSuchElementException nex) {
+			throw new Exception("ID Number "+vehicleId+" does not exist!");
+		}
+	}
+	
 
 	public String deleteVehicle(int vehicleId) {
 		String msg;

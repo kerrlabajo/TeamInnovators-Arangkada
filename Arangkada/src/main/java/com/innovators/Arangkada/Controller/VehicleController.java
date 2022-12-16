@@ -67,7 +67,10 @@ public class VehicleController {
 	public VehicleEntity putVehicle(@PathVariable int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
 		return vserv.putVehicle(vehicleid, newVehicleDetails);
 	}
-
+	@PutMapping("/putReason/{vehicleid}")
+	public VehicleEntity putReason(@PathVariable int vehicleid, @RequestBody VehicleEntity newVehicleDetails) throws Exception{
+			return vserv.putReason(vehicleid, newVehicleDetails);
+	}
 	@DeleteMapping ("/deleteVehicle/{vehicleId}") 
 	public String deleteVehicle(@PathVariable int vehicleId) { 
 		return vserv.deleteVehicle(vehicleId);
