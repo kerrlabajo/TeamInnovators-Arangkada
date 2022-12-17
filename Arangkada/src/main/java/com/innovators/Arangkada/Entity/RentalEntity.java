@@ -35,6 +35,8 @@ public class RentalEntity {
 	
 	private boolean current;
 	
+	private boolean paid;
+	
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "vehicle_id", referencedColumnName = "vehicleId")
 	private VehicleEntity vehicle;
@@ -45,7 +47,7 @@ public class RentalEntity {
 	
 	public RentalEntity() {}
 
-	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, boolean current,
+	public RentalEntity(int rentalId, Date startDate, Date endDate, RentalStatus status, boolean current, boolean paid,
 			VehicleEntity vehicle, DriverEntity driver) {
 		super();
 		this.rentalId = rentalId;
@@ -53,6 +55,7 @@ public class RentalEntity {
 		this.endDate = endDate;
 		this.status = status;
 		this.current = current;
+		this.paid = paid;
 		this.vehicle = vehicle;
 		this.driver = driver;
 	}
@@ -85,12 +88,12 @@ public class RentalEntity {
 		this.status = status;
 	}
 	
-	public boolean getCurrent() {
+	public boolean isCurrent() {
 		return current;
 	}
 
-	public void setCurrent(boolean isPaid) {
-		this.current = isPaid;
+	public void setCurrent(boolean current) {
+		this.current = current;
 	}
 
 	public VehicleEntity getVehicle() {
@@ -100,6 +103,13 @@ public class RentalEntity {
 	public DriverEntity getDriver() {
 		return driver;
 	}
-	
+
+	public boolean isPaid() {
+		return paid;
+	}
+
+	public void setPaid(boolean paid) {
+		this.paid = paid;
+	}
 	
 }
