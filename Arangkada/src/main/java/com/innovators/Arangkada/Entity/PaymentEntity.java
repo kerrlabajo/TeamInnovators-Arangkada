@@ -27,15 +27,18 @@ public class PaymentEntity {
 	@OneToOne
 	@JoinColumn(name = "rental_id", referencedColumnName = "rentalId")
 	private RentalEntity rental;
+	
+	private boolean collected;
 
 	public PaymentEntity() {}
 	
-	public PaymentEntity(int paymentId, double amount, Date datePaid, RentalEntity rental) {
+	public PaymentEntity(int paymentId, double amount, Date datePaid, RentalEntity rental, boolean collected) {
 		super();
 		this.paymentId = paymentId;
 		this.amount = amount;
 		this.datePaid = datePaid;
 		this.rental = rental;
+		this.collected = collected;
 	}
 
 	public int getPaymentId() {
@@ -70,5 +73,11 @@ public class PaymentEntity {
 		this.rental = rental;
 	}
 	
-	
+	public boolean getCollected() {
+		return collected;
+	}
+
+	public void setCollected(boolean collected) {
+		this.collected = collected;
+	}
 }
