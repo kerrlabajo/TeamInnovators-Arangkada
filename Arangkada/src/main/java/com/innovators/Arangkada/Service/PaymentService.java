@@ -35,8 +35,8 @@ public class PaymentService {
 			PaymentEntity payment = paymentRepository.findById(id).get();
 			
 			payment.setAmount(newPaymentDdetails.getAmount());
-			payment.setDatePaid(newPaymentDdetails.getDatePaid());
-			payment.setRental(newPaymentDdetails.getRental());
+			//payment.setDatePaid(newPaymentDdetails.getDatePaid());
+			//payment.setRental(newPaymentDdetails.getRental());
 			
 			return paymentRepository.save(payment);
 		}	
