@@ -20,6 +20,7 @@ public class RentalService {
 	public RentalEntity postRental(RentalEntity rental) {
 		rental.setStatus(RentalStatus.PENDING);
 		rental.setCurrent(true);
+		rental.setPaid(false);
 		return rentalRepository.save(rental);
 	}
 	
@@ -61,7 +62,8 @@ public class RentalService {
 			rental.setStartDate(newRentalDetails.getStartDate());
 			rental.setEndDate(newRentalDetails.getEndDate());
 			rental.setStatus(newRentalDetails.getStatus());
-			rental.setCurrent(newRentalDetails.getCurrent());
+			rental.setCurrent(newRentalDetails.isCurrent());
+			rental.setPaid(newRentalDetails.isPaid());
 			return rentalRepository.save(rental);
 		}	
 		return null;
