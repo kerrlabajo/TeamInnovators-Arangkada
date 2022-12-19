@@ -52,7 +52,10 @@ public class RentalService {
 	@Transactional
 	public RentalEntity getCurrentRentalByDriverId(int id) {
 		updateRentalStatus();
-		return rentalRepository.findByCurrentAndDriverDriverId(true, id);
+		if(rentalRepository.findByCurrentAndDriverDriverId(true, id) != null) 
+			return rentalRepository.findByCurrentAndDriverDriverId(true, id);
+		else 
+			return null;
 	}
 	
 	// Update
