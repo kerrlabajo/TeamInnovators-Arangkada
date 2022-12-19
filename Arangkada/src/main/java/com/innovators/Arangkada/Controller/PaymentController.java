@@ -34,6 +34,16 @@ public class PaymentController {
 		return paymentService.getAllPayments();
 	}
 	
+	@GetMapping("/getAllCollectedPayments")
+	public List<PaymentEntity> getAllCollectedPayments() {
+		return paymentService.getAllCollectedPayments();
+	}
+	
+	@GetMapping("/getAllUnCollectedPayments")
+	public List<PaymentEntity> getAllUnCollectedPayments() {
+		return paymentService.getAllUnCollectedPayments();
+	}
+	
 	@GetMapping("/getPaymentsByDriverId/{id}")
 	public List<PaymentEntity> getPaymentsByDriverId(@PathVariable int id) {
 		return paymentService.getPaymentsByDriverId(id);
