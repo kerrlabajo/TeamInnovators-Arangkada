@@ -49,6 +49,11 @@ public class PaymentController {
 		return paymentService.putPayment(id, newPaymentDetails);
 	}
 	
+	@PutMapping("/putCollected/{id}")
+	public PaymentEntity putCollected(@PathVariable int id, @RequestBody PaymentEntity newPaymentDetails) {
+		return paymentService.putCollected(id, newPaymentDetails);
+	}
+	
 	@DeleteMapping("/deletePayment/{id}")
 	public String deletePayment(@PathVariable int id) {
 		return paymentService.deletePayment(id);

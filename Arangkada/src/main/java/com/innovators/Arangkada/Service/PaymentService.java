@@ -43,6 +43,17 @@ public class PaymentService {
 		return null;
 	}
 	
+	public PaymentEntity putCollected(int id, PaymentEntity newPaymentDdetails) {
+		if(paymentRepository.existsById(id)) {
+			PaymentEntity payment = paymentRepository.findById(id).get();
+			
+			payment.setCollected(newPaymentDdetails.getCollected());
+			
+			return paymentRepository.save(payment);
+		}	
+		return null;
+	}
+	
 	public String deletePayment(int id) {
 		String msg = "Payment with id: " + id + " is not found.";
 		if(paymentRepository.existsById(id)) {
