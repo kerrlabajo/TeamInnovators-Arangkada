@@ -22,6 +22,14 @@ public class PaymentService {
 		return paymentRepository.findAll();
 	}
 	
+	public List<PaymentEntity> getAllUnCollectedPayments() {
+		return paymentRepository.findByCollected(false);
+	}
+	
+	public List<PaymentEntity> getAllCollectedPayments() {
+		return paymentRepository.findByCollected(true);
+	}
+	
 	public PaymentEntity getPaymentById(int id) {
 		return paymentRepository.findById(id).orElse(null);
 	}
