@@ -82,7 +82,7 @@ public class AccountEntity {
 	public String getMiddlename() {
 		return middlename;
 	}
-
+	
 	public void setMiddlename(String middlename) {
 		this.middlename = middlename;
 	}

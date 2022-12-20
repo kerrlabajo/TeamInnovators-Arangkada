@@ -1,6 +1,7 @@
 package com.innovators.Arangkada.Entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,12 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 @Entity
-@Table(name="tbl_operator")
+@Table(name="tbl_operator", uniqueConstraints = {@UniqueConstraint(columnNames = { "permitNumber" })})
 @SQLDelete(sql = "UPDATE tbl_operator SET is_deleted = true WHERE operator_id=?")
 @Where(clause = "is_deleted=false")
 public class OperatorEntity {
@@ -23,6 +25,8 @@ public class OperatorEntity {
 	private int operatorId;
 	
 	private String businessName;
+	
+	@Column(unique=true)
 	private String permitNumber;
 	private boolean isDeleted = Boolean.FALSE;
 	
