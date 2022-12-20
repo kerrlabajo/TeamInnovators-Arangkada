@@ -10,5 +10,7 @@ public interface PaymentRepository extends JpaRepository<PaymentEntity, Integer>
 
 	public List<PaymentEntity> findByRentalDriverDriverId(int id);
 	
-	public List<PaymentEntity> findByCollected(boolean collected);
+	public List<PaymentEntity> findByRentalVehicleOperatorOperatorId(int id);
+	
+	public List<PaymentEntity> findByCollectedAndRentalVehicleOperatorOperatorId(boolean collected, int id);
 }

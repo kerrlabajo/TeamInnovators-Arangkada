@@ -29,19 +29,19 @@ public class PaymentController {
 		return paymentService.postPayment(payment);
 	}
 	
-	@GetMapping("/getAllPayments")
-	public List<PaymentEntity> getAllPayments() {
-		return paymentService.getAllPayments();
+	@GetMapping("/getAllPayments/{id}")
+	public List<PaymentEntity> getAllPayments(@PathVariable int id) {
+		return paymentService.getAllPayments(id);
 	}
 	
-	@GetMapping("/getAllCollectedPayments")
-	public List<PaymentEntity> getAllCollectedPayments() {
-		return paymentService.getAllCollectedPayments();
+	@GetMapping("/getAllCollectedPayments/{id}")
+	public List<PaymentEntity> getAllCollectedPayments(@PathVariable int id) {
+		return paymentService.getAllCollectedPayments(id);
 	}
 	
-	@GetMapping("/getAllUnCollectedPayments")
-	public List<PaymentEntity> getAllUnCollectedPayments() {
-		return paymentService.getAllUnCollectedPayments();
+	@GetMapping("/getAllUnCollectedPayments/{id}")
+	public List<PaymentEntity> getAllUnCollectedPayments(@PathVariable int id) {
+		return paymentService.getAllUnCollectedPayments(id);
 	}
 	
 	@GetMapping("/getPaymentsByDriverId/{id}")

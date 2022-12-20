@@ -18,16 +18,16 @@ public class PaymentService {
 		return paymentRepository.save(payment);
 	}
 	
-	public List<PaymentEntity> getAllPayments() {
-		return paymentRepository.findAll();
+	public List<PaymentEntity> getAllPayments(int id) {
+		return paymentRepository.findByRentalVehicleOperatorOperatorId(id);
 	}
 	
-	public List<PaymentEntity> getAllUnCollectedPayments() {
-		return paymentRepository.findByCollected(false);
+	public List<PaymentEntity> getAllUnCollectedPayments(int id) {
+		return paymentRepository.findByCollectedAndRentalVehicleOperatorOperatorId(false, id);
 	}
 	
-	public List<PaymentEntity> getAllCollectedPayments() {
-		return paymentRepository.findByCollected(true);
+	public List<PaymentEntity> getAllCollectedPayments(int id) {
+		return paymentRepository.findByCollectedAndRentalVehicleOperatorOperatorId(true, id);
 	}
 	
 	public PaymentEntity getPaymentById(int id) {
