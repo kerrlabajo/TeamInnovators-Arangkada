@@ -5,8 +5,9 @@ An application that uses a PUV Rental Management System
 1. Modified backend's `application.properties`.
 2. Imported the [frontend react app source code](https://github.com/faithrosalijos/TeamInnovators-Arangkada-Frontend).
 3. Fixed frontend's `Transaction` page `Network Error`.
-4. Added `Dockerfiles` for backend and frontend.
-5. Added `docker-compose.yml`.
+4. Added `.env` variables.
+5. Added `Dockerfiles` for backend and frontend.
+6. Added `docker-compose.yml`.
 ## Dockerization Feature
 Pulling from this branch will allow this feature but only if the user have Docker Desktop installed on their computers. See link for installation guide. https://docs.docker.com/desktop/install/windows-install/
 
